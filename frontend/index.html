@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="shortcut icon" type="image/svg+xml" href="/logo.svg" />
+    <!-- <link rel="icon" href="/favicon.ico" /> -->
+    <!-- <link rel="shortcut icon" href="/favicon.ico" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="" name="keywords" />
+    <meta content="" name="author" />
+    <meta name="description" content="" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BountyHunter" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="BountyHunter" />
+    <!-- <meta property="og:updated_time" content="2023-09-17T12:19:50-07:00" /> -->
+    <!-- <meta property="og:image" content="/logo-full.png" />
+    <meta property="og:image:secure_url" content="/logo-full.png" /> -->
+    <meta property="og:image:width" content="420" />
+    <meta property="og:image:height" content="420" />
+    <meta property="og:image:alt" content="Home Page &#8211; [V1]" />
+    <meta property="og:image:type" content="image/png" />
+    <link rel="apple-touch-icon" type="image/svg+xml" href="/logo.svg" />
+    <!-- <link rel="apple-touch-icon" href="/logo-full.png" /> -->
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="/manifest.json" />
+    <script src="https://kit.fontawesome.com/58462686c9.js" crossorigin="anonymous"></script>
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>BountyHunter</title>
+    <style>
+      @keyframes hideLoader {
+        0% {
+          width: 100%;
+          height: 100%;
+        }
+  
+        100% {
+          width: 0;
+          height: 0;
+        }
+      }
+  
+      @keyframes animateBg {
+        0% {
+          filter: hue-rotate(0deg);
+        }
+  
+        100% {
+          filter: hue-rotate(360deg);
+        }
+      }
+  
+      body>div.loader {
+        position: fixed;
+        background: #222;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        opacity: 0;
+        transition: opacity .5s ease;
+        overflow: hidden;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: animateBg 10s linear infinite;
+      }
+  
+      body:not(.loaded)>div.loader {
+        opacity: 1;
+      }
+  
+      body:not(.loaded) {
+        overflow: hidden;
+      }
+    </style>
+    <script type="text/javascript">
+      window.addEventListener("load", function () { document.querySelector('body').classList.add('loaded'); });
+    </script>
+  </head>
+  <body>
+    <div class="loader">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      <lottie-player src="/loading.json" background="transparent" speed="1"
+        style="width: 300px; height: 300px" direction="1" mode="normal" loop autoplay></lottie-player>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/index.jsx"></script>
+    <!--
+    This HTML file is a template.
+    If you open it directly in the browser, you will see an empty page.
+
+    You can add webfonts, meta tags, or analytics to this file.
+    The build step will place the bundled scripts into the <body> tag.
+
+    To begin the development, run `npm start` or `yarn start`.
+    To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
